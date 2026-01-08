@@ -1,51 +1,8 @@
 from tkinter import messagebox, Tk
 import pygame as pg
 import sys
-
-# Window's measurement
-window_width = 500
-window_height = 500
-# Creating the window's interface
-window = pg.display.set_mode((window_width, window_height))
-# Creating columns and rows
-columns = 25
-rows = 25
-box_width = window_width // columns
-box_height = window_height // rows
-# Creating an empty grid as a list
-grid = []
-queue = []
-path = []
-
-class Box:
-    def __init__(self,i, j): #Ask AI how this works
-        self.x = i
-        self.y = j
-        self.start = False
-        self.wall = False
-        self.target = False
-        self.queued = False
-        self.visited = False
-        self.neighbors = []
-        self.prior = None
-        '''
-        He said something about flagging these stuffs??
-        '''
-    def draw(self,win, color):
-        pg.draw.rect(win,color, (self.x * box_width, self.y * box_height, box_width - 2, box_height - 2)) # He said is about some sort of margin or something
-    def set_neighbour(self): # This code will handle the upcoming blocks which is stored in a list
-        if self.x > 0:
-            self.neighbors.append(grid[self.x - 1][self.y])
-        if self.x < columns - 1:
-            self.neighbors.append(grid[self.x + 1][self.y])
-        if self.y > 0:
-            self.neighbors.append(grid[self.x][self.y - 1])
-        if self.y < rows - 1:
-            self.neighbors.append(grid[self.x][self.y + 1])
-        '''
-        The first 2 if are to set the neighboring blocks into a list (called neighbors)
-        The next 2 if are to set the neighboring blocks into a list (called neighbors)
-        '''
+from settings import *
+from box import *
 
 # Creating Grid
 for i in range (columns):
@@ -114,6 +71,12 @@ def main():
                             neighbour.prior = current_box
                             queue.append(neighbour)
 
+            '''
+            The idea of this is DFS (depth first search)
+            All the box is queued, after searching for the possibility by setting the neighbouring cells, it is contained in the queue (the rest is popped)
+            DFS is used to find the shortest possible way to get the final destination box.
+            '''
+
 
         # All the drawings take action
         window.fill((0,0,0))
@@ -141,4 +104,4 @@ def main():
 
         pg.display.flip() # Similar to pg.display.update()
 
-main()
+main() # The code finally runs
