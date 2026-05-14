@@ -1,27 +1,121 @@
 # Dijkstra Pathfinding in Python
 
-Credit by: ***Max Rohowsky*** (link: https://www.youtube.com/watch?v=QNpUN8gBeLY )
-This repository aims to reconstruct Dijkstra pathfinding method using Python as an introductory project to a high-school student
-to get familiar with this pathfinding method. It is one of the fundamental algorithm to prepare for their pursuit 
-of Computer Science major career path.
+Credit: **Max Rohowsky**
+Tutorial: https://www.youtube.com/watch?v=QNpUN8gBeLY
 
-## Instructions
-Clone the repository: 
+This repository aims to reconstruct the Dijkstra pathfinding algorithm using Python as an introductory project for high-school students to become familiar with pathfinding concepts and algorithm visualization.
 
-Install dependencies (if any):
+The project demonstrates how shortest-path searching works through an interactive grid-based visualization, helping students understand algorithmic thinking, graph traversal, and real-time graphical feedback using pygame.
 
-Run the game: python main.py
+---
+
+## Tech Stack
+
+* Python
+* Pygame
+* Tkinter
+
+---
+
 ## Highlight Features
 
-#### 1. **The introduction to tkinter**
-This code is mainly run of tkinter library. This is used to pop-up messages (when the code can't find a solution to the problem) and GUI window (means interacting with the users). However, the visualization is handled entirely by Pygame.
-#### 2. **The Algorithm**
-The pathfinding logic is implemented with a queue-based search.
-Each box tracks its neighbors, whether it's a wall, visited or queued (the visualization colors make the algorithm's progess clear). 
-The algorithm explores cells step by step until it reaches the target, then reconstructs the path by backtracking through the prior links.
-## Conclusion
-This program successfully demonstrates an **interactive pathfinding visualizer** built with Pygame. It allows users to set walls, define a target, and watch the search unfold in real time. The algorithm explores the grid step by step, marking visited and queued cells, and reconstructs the path once the target is reached.  
-Although Tkinter is imported, the visualization and interaction are handled entirely by Pygame. 
-In short, the code provides a solid foundation for learning and visualizing pathfinding, combining interactive controls with clear graphical feedback.
+### 1. Introduction to Tkinter
 
- 
+This project introduces the use of the tkinter library for graphical user interface interactions such as pop-up messages and user notifications.
+
+While tkinter is used for message dialogs, the main visualization and interactive grid system are entirely handled by pygame.
+
+### 2. Dijkstra Pathfinding Algorithm
+
+The pathfinding logic is implemented using a queue-based search system.
+
+Each grid cell tracks:
+
+* Its neighboring cells
+* Whether it is a wall
+* Whether it has been visited
+* Whether it has been queued for exploration
+
+The visualization uses different colors to clearly display the algorithm’s progress in real time.
+
+The algorithm explores cells step by step until it reaches the target node, then reconstructs the shortest path by backtracking through stored prior connections.
+
+### 3. Interactive Visualization
+
+Users can:
+
+* Place walls and obstacles
+* Define start and target nodes
+* Watch the search process unfold visually
+* Observe how the shortest path is reconstructed
+
+This provides a more intuitive understanding of pathfinding behavior compared to static textbook examples.
+
+---
+
+## Directory Structure
+
+```bash id="kpjlwm"
+Dijkstra-_Pathfinding/
+│
+├── Code/
+│   ├── box.py
+│   ├── main.py
+│   └── settings.py
+│
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+### Important Files
+
+* `main.py` starts the visualization and handles the main program loop
+* `box.py` defines the grid cells and their behaviors during the pathfinding process
+* `settings.py` stores constants and configuration values used throughout the project
+
+---
+
+## Run Locally
+
+Clone the repository:
+
+```bash id="l3y4jh"
+git clone <your-repository-link>
+```
+
+Go to the project directory:
+
+```bash id="1jlwmf"
+cd Dijkstra-_Pathfinding
+```
+
+Install dependencies:
+
+```bash id="4pc0nl"
+pip install pygame
+```
+
+Run the program:
+
+```bash id="d6sqin"
+python Code/main.py
+```
+
+---
+
+## Conclusion
+
+This project successfully demonstrates an interactive pathfinding visualizer built with pygame.
+
+It allows users to create obstacles, define targets, and observe the pathfinding process in real time through graphical feedback.
+
+The program helps students:
+
+* Understand the fundamentals of Dijkstra pathfinding
+* Learn grid-based traversal logic
+* Explore algorithm visualization techniques
+* Gain experience working with pygame and tkinter
+* Strengthen problem-solving and computational thinking skills
+
+Overall, this repository serves as both an educational tool and a practical introduction to pathfinding algorithms in Computer Science.
